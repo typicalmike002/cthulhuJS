@@ -1,0 +1,33 @@
+{
+  "name": "cthulhu.js",
+  "version": "0.0.0",
+  "description": "a breach between this world and the dread realm of c͒ͪo͛ͫrrupt entities",
+  "main": "cthulhu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typicalmike002/cthulhuJS.git"
+  },
+  "keywords": [
+    "HTML",
+    "Regular",
+    "Expressions",
+    "regex",
+    "JavaScript"
+  ],
+  "author": "typicalmike002",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/typicalmike002/cthulhuJS/issues"
+  },
+  "homepage": "https://github.com/typicalmike002/cthulhuJS#readme",
+  "dependencies": {
+    "gulp": "3.9.1"
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-minify": "0.0.12"
+  }
+}
