@@ -10,8 +10,8 @@ Add Cthulhu to your project:
 ### cthulhu.dine(html[, whiteList])
 #### Parameters
 **html:**
-	string containing html markup.<br />
+    string containing html markup.<br />
 **whiteList (optional):**
-	array containing tags to leave behind.<br />
+    array containing tags to leave behind.<br />
 #### Description
 Cthulhu will respectfully consume your html, leaving something behind for the browser.

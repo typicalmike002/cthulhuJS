@@ -1,13 +1,16 @@
-var gulp = require('gulp');
-var minify = require('gulp-minify');
+const gulp    = require('gulp'),
+      plugins = require('gulp-load-plugins')(),
+      report  = require('jasmine-reporters');
 
-gulp.task('default', function(){
-	gulp.src('cthulhu.js')
-		.pipe(minify({
-			ext: {
-				src: '.js',
-				min: '.min.js'
-			}
-		}))
-		.pipe(gulp.dest(''))
-});
+gulp.task('watch', () => 
+    gulp.watch('source/**/*.js', ['default'])
+);
+
+gulp.task('default', () =>
+    gulp.src('cthulhu.js')
+        .pipe(plugins.webpack( require('./webpack.config.js') ))
+        // .pipe(plugins.jasmine({
+        //     reporter: new reporters.JUnitXmlReporter()
+        // }))
+        .pipe(gulp.dest(''))
+);
