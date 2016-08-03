@@ -12,8 +12,7 @@ module.exports = (karma) => {
         	'source/modules/*.js': ['coverage']
         },
         coverageReporter: {
-        	type: 'html',
-        	dir: 'coverage/'
+        	type: 'text'
         },
 		files: [
 			'cthulhu.min.js',
