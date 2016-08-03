@@ -1,6 +1,6 @@
-require('./../../cthulhu.min.js');
-
-console.log(cthulhu);
+/**
+ * Tests for cthulhu.dine();
+ */
 
 describe('cthulhu.dine', function(){
     it('Removes html tags from a string.', function(){

@@ -1,19 +1,16 @@
 const gulp    = require('gulp'),
       plugins = require('gulp-load-plugins')(),
-      report  = require('jasmine-reporters'),
       Server  = require('karma').Server;
 
 
 gulp.task('watch', () => 
-    gulp.watch('source/**/*.js', ['default', 'tests'])
+    gulp.watch('source/**/*.js', ['tests'])
 );
 
-gulp.task('tests', (done) => 
+gulp.task('tests', ['default'], (done) => 
     new Server({
-        configFile: __dirname + '/karma.config.js',
-        singleRun: false,
-        autoWatch: true
-    }, done).start()
+        configFile: __dirname + '/karma.config.js'
+      }, done).start()
 );
 
 gulp.task('default', () =>

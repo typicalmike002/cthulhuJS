@@ -14,7 +14,7 @@ const dine = (html, whiteList) => {
         regexParser = new RegExp('[<|&]' + regexIgnore + '(.*?)[>|;]', 'gi'),
         results     = html.replace(regexParser, '');
 
-    return results;
+    return 'results';
 }
 
 export default dine;

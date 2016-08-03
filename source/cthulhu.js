@@ -1,8 +1,8 @@
 /**
- * The ritual of parsing HTML with Regular Expressions 
- * shall commence upon this call.  Leave your best 
- * practices behind you, and enter one of the realms of 
- * eternal madness as logic bleeds from your eyes.
+ * cthulhu.js
+ *
+ * - Attaches all regular expression parsing classes to the dom.
+ *
  */
 
 import dine from './modules/dine.js';
