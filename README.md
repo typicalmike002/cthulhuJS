@@ -7,11 +7,11 @@ Add Cthulhu to your project:
 ```
 <script src="cthulhuJS/cthulhu.min.js"></script>
 ```
-### cthulhu.dine(html[, whiteList])
+### cthulhu.strip(html[, whiteList])
 #### Parameters
 **html:**
     string containing html markup.<br />
 **whiteList (optional):**
     array containing tags to leave behind.<br />
 #### Description
-Cthulhu will respectfully consume your html, leaving something behind for the browser.
+Strips a string of all html inclucing html entities.

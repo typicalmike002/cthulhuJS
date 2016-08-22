@@ -5,7 +5,7 @@
  *
  */
 
-import dine from './modules/dine.js';
+import strip from './modules/strip.js';
 
 !function(window, document, undefined) {
 
@@ -13,7 +13,7 @@ import dine from './modules/dine.js';
 
     let cthulhu = {};
 
-    cthulhu.dine = dine;
+    cthulhu.strip = strip;
 
     window.cthulhu = cthulhu;
 

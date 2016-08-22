@@ -1,5 +1,5 @@
 /**
- * buildTagRegexList
+ * buildTagRegexList.apply(['h1', 'strong'])
  *
  * Map this array to a regular expression with each
  * item contained inside an absolute word bondry 
