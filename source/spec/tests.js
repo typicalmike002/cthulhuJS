@@ -27,4 +27,11 @@ describe('cthulhu.strip', function(){
         expect( cthulhu.strip('<div id="header">&nbsp;I dont like non-breaking space!</div>', ['div'] ) )
             .toEqual( '<div id="header">I dont like non-breaking space!</div>');
     });
+
+    // **TODO: Make this edge case pass:
+    // Makes sure the strip removes the correct html entities:
+    it('Removes the correct html entities from text', function(){
+        expect( cthulhu.strip('When the symbol "&" is followed by this semicolon ";" the sentence remains the same.') )
+            .toEqual('When the symbol "&" is followed by this semicolon ";" the sentence remains the same.');
+    });
 });
