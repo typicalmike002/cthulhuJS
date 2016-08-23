@@ -1,17 +1,18 @@
 /**
- * buildTagRegexList.apply(['h1', 'strong'])
+ * createWordBoundaryList.apply(['h1', 'strong']);
  *
- * Map this array to a regular expression with each
- * item contained inside an absolute word bondry 
- * with all items seperated by or '|'
+ * - Converts an array of characters to a regular expression,
+ *   where each item is contained within a word boundary.
+ *
+ * - Performs a join on the array, seperating each item 
+ *   with the "|" pipe.
  */
 
-export function buildTagRegexList() {
+export function createWordBoundaryList() {
 
     if (Array.isArray(this)) {
 
-        let length  = this.length,
-            results = this.map((tag) => {
+        let results = this.map((tag) => {
                 return new RegExp('\\b' + tag + '\\b').source;
         });
 
@@ -23,12 +24,12 @@ export function buildTagRegexList() {
 
 
 /**
- * buildRegexIgnoreList
+ * ignoreInstanceOf.call(/\\bh1\\b|\\bstrong\\b/);
  *
- * Converts a regular expression string into a negative lookahead.
+ * - Converts a regular expression string into a negative lookahead.
  */
 
-export function buildRegexIgnoreList() {
+export function ignoreInstancesOf() {
 
     if (this !== 'undefined') {
 

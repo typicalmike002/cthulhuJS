@@ -1,16 +1,17 @@
 /**
  * .strip(html[, whiteList])
  *
- * html: string containing html markup.
- * whiteList (optional): array containing tags to leave behind.
+ * - Params:
+ *          html: string containing html markup.
+ *          whiteList (optional): array containing tags to leave behind.
  */
 
-import { buildTagRegexList, buildRegexIgnoreList } from './functions.js';
+import { createWordBoundaryList, ignoreInstancesOf } from './functions.js';
 
 const strip = (html, whiteList) => {
 
-    let regexTags   = buildTagRegexList.apply(whiteList),
-        regexIgnore = buildRegexIgnoreList.call(regexTags),
+    let regexTags   = createWordBoundaryList.apply(whiteList),
+        regexIgnore = ignoreInstancesOf.call(regexTags),
         regexParser = new RegExp('[<|&]' + regexIgnore + '(.*?)[>|;]', 'gi'),
         results     = html.replace(regexParser, '');
 
