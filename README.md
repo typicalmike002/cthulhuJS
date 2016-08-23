@@ -16,7 +16,7 @@ Add Cthulhu to your project:
 #### Description
 Strips a string of all html inclucing html entities.
 #### Example
-An example function that removes all html except for both tags: <strong></strong>
+An example function that removes all html except the strong tag: <strong></strong>
 ``` html
 <!DOCTYPE html>
 <html>
