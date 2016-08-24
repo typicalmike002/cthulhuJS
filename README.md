@@ -24,7 +24,7 @@ Strips a string of all html tags, excluding any tags declared in the white list.
 #### Description
 Strips a string of all html entities, excluding any entities declared in the white list.
 ### Example
-An example function that removes all html except the strong tag: <strong></strong>
+An example function that removes all html except the strong tag and nbsp entity:
 ``` html
 <!DOCTYPE html>
 <html>
@@ -41,8 +41,12 @@ An example function that removes all html except the strong tag: <strong></stron
 			function example(exampleValue){
 
 				var resultDiv = document.getElementById('result');
-				resultDiv.innerHTML = cthulhu.stripTags(exampleValue, ['strong']); // Removes all html tags except for <strong> 
-				resultDiv.innerHTML = cthulhu.stripEntities(resultsDiv.innerHTML, ['nbsp']); // Removes all html entities except for &nbsp;
+
+				// Removes all html tags except for <strong>
+				resultDiv.innerHTML = cthulhu.stripTags(exampleValue, ['strong']); 
+
+				// Removes all html entities except for &nbsp;
+				resultDiv.innerHTML = cthulhu.stripEntities(resultsDiv.innerHTML, ['nbsp']);
 			}
 		</script>
 	</body>
