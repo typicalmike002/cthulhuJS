@@ -27,13 +27,18 @@ export function createWordBoundaryList() {
  * ignoreInstanceOf.call(/\\bh1\\b|\\bstrong\\b/);
  *
  * - Converts a regular expression string into a negative lookahead.
+ *
+ * - Falls back to empty so it never returns undefined.
  */
 
 export function ignoreInstancesOf() {
 
-    if (this !== 'undefined') {
+    if (this !== undefined) {
 
         return new RegExp('(?!\/?(' + this + ')\/?)').source;
+
+    } else {
+        return '';
     }
 }
 

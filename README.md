@@ -1,5 +1,5 @@
 # cthulhuJS
-###### -0.0.2
+###### -0.0.3
 Provides HTML parsing assistance from "Them and their blasphemous ways which doom us all to inhuman toil for the One whose Name cannot be expressed in the Basic Multilingual Plane".
 
 ## User's Guide
@@ -10,12 +10,20 @@ Add Cthulhu to your project:
 ### cthulhu.stripTags(html[, whiteList])
 #### Parameters
 **html:**
-    string containing html markup.<br />
+    string containing html tags.<br />
 **whiteList (optional):**
-    array of tags to leave behind.  This will leave behind both opening and closing tags and is labeled by the tag name without brackets.<br />
+    array of tags to leave behind.  Do not wrap them in brackets.<br />
 #### Description
-Strips a string of all html inclucing html entities.
-#### Example
+Strips a string of all html tags, excluding any tags declared in the white list.
+### cthulhu.stripEntities(entities[, whiteList])
+#### Parameters
+**entities:**
+	string containing html entities.<br />
+**whiteList (optional):**
+	array of entities to leave behind.  Leave out the appersand and semicolon.
+#### Description
+Strips a string of all html entities, excluding any entities declared in the white list.
+### Example
 An example function that removes all html except the strong tag: <strong></strong>
 ``` html
 <!DOCTYPE html>
@@ -33,7 +41,8 @@ An example function that removes all html except the strong tag: <strong></stron
 			function example(exampleValue){
 
 				var resultDiv = document.getElementById('result');
-				resultDiv.innerText = cthulhu.stripTags(exampleValue, ['strong']); // Removes all html except for <strong> 
+				resultDiv.innerHTML = cthulhu.stripTags(exampleValue, ['strong']); // Removes all html tags except for <strong> 
+				resultDiv.innerHTML = cthulhu.stripEntities(resultsDiv.innerHTML, ['nbsp']); // Removes all html entities except for &nbsp;
 			}
 		</script>
 	</body>

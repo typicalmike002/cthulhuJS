@@ -2,7 +2,7 @@
  * .stripTags(html[, whiteList])
  *
  * - Params:
- *          html: string containing html markup.
+ *          html: string containing html tags.
  *          whiteList (optional): array containing tags to leave behind.
  */
 

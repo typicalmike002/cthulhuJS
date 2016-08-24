@@ -1,19 +1,13 @@
 /**
- * Tests for cthulhu.strip();
+ * Tests for cthulhu.stripTags();
  */
 
 describe('cthulhu.stripTags', function(){
     
-    // Test for removing tags around string:
+    // Basic Test:
     it('Removes tags around normal text.', function(){
         expect( cthulhu.stripTags('<b>This should not be bold!</b>') )
             .toEqual( 'This should not be bold!' );
-    });
-
-    // Test for removing tags inside string:
-    it('Removes tags from within a normal string', function(){
-        expect( cthulhu.stripTags('<i>All</i> tags <strong>need</strong> to be removed...') )
-            .toEqual( 'All tags need to be removed...');
     });
 
     // Test for the optional white list:
@@ -26,5 +20,26 @@ describe('cthulhu.stripTags', function(){
     it('Will handle cases involving plantext brackets.', function(){
         expect( cthulhu.stripTags( '<span class="math">5 > 2</span>' ) )
             .toEqual( '5 > 2' );
+    });
+});
+
+
+
+/**
+ * Tests for cthulhu.stripEntities();
+ */
+
+describe('cthulhu.stripEntities', function(){
+
+    // Test for basic removal:
+    it('Will remove all html entites from a string of text.', function(){
+        expect( cthulhu.stripEntities( 'I want no &nbsp;entities!' ) )
+            .toEqual( 'I want no entities!' ) 
+    });
+
+    // Test for removal with white list:
+    it('Will remove html entities not specified in the white list.', function(){
+        expect( cthulhu.stripEntities( 'I need a &nbsp; but not a&NewLine;', ['nbsp'] ) )
+            .toEqual( 'I need a &nbsp; but not a');
     });
 });

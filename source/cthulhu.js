@@ -6,6 +6,7 @@
  */
 
 import stripTags from './modules/stripTags.js';
+import stripEntities from './modules/stripEntities.js';
 
 !function(window, document, undefined) {
 
@@ -14,6 +15,7 @@ import stripTags from './modules/stripTags.js';
     let cthulhu = {};
 
     cthulhu.stripTags = stripTags;
+    cthulhu.stripEntities = stripEntities;
 
     window.cthulhu = cthulhu;
 
