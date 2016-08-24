@@ -1,5 +1,5 @@
 /**
- * .strip(html[, whiteList])
+ * .stripTags(html[, whiteList])
  *
  * - Params:
  *          html: string containing html markup.
@@ -8,14 +8,14 @@
 
 import { createWordBoundaryList, ignoreInstancesOf } from './functions.js';
 
-const strip = (html, whiteList) => {
+const stripTags = (html, whiteList) => {
 
     let regexTags   = createWordBoundaryList.apply(whiteList),
         regexIgnore = ignoreInstancesOf.call(regexTags),
-        regexParser = new RegExp('[<|&]' + regexIgnore + '(.*?)[>|;]', 'gi'),
+        regexParser = new RegExp('<' + regexIgnore + '(.*?)>', 'gi'),
         results     = html.replace(regexParser, '');
 
     return results;
 }
 
-export default strip;
+export default stripTags;

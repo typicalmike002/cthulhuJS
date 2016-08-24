@@ -1,5 +1,5 @@
 # cthulhuJS
-###### -0.0.1
+###### -0.0.2
 Provides HTML parsing assistance from "Them and their blasphemous ways which doom us all to inhuman toil for the One whose Name cannot be expressed in the Basic Multilingual Plane".
 
 ## User's Guide
@@ -7,7 +7,7 @@ Add Cthulhu to your project:
 ```
 <script src="cthulhuJS/cthulhu.min.js"></script>
 ```
-### cthulhu.strip(html[, whiteList])
+### cthulhu.stripTags(html[, whiteList])
 #### Parameters
 **html:**
     string containing html markup.<br />
@@ -33,7 +33,7 @@ An example function that removes all html except the strong tag: <strong></stron
 			function example(exampleValue){
 
 				var resultDiv = document.getElementById('result');
-				resultDiv.innerText = cthulhu.strip(exampleValue, ['strong']); // Removes all html except for <strong> 
+				resultDiv.innerText = cthulhu.stripTags(exampleValue, ['strong']); // Removes all html except for <strong> 
 			}
 		</script>
 	</body>

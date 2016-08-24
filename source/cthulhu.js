@@ -5,7 +5,7 @@
  *
  */
 
-import strip from './modules/strip.js';
+import stripTags from './modules/stripTags.js';
 
 !function(window, document, undefined) {
 
@@ -13,7 +13,7 @@ import strip from './modules/strip.js';
 
     let cthulhu = {};
 
-    cthulhu.strip = strip;
+    cthulhu.stripTags = stripTags;
 
     window.cthulhu = cthulhu;
 
