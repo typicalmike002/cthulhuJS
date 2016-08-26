@@ -55,7 +55,7 @@ An example function that removes all html except the strong tag and nbsp entity:
 #### About
 [Inspired by this](http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags)<br />
 
-What started as a programming exercise on test driven development quickly turned into a thing that can be useful in specific situations.  Please review the tests to understand various edge cases that are not yet handled properly by the library.  Feel free to submit a fix to one of them or email me if you have any suggestions.  I've decided to use negative numbers for each version which seems more fitting as I bring the open source community a step backwards for contributing to such madness.  Use at your own risk.
+What started as a programming exercise on test driven development quickly turned into a thing that can be useful in specific situations.  I've decided to use negative numbers for each version which seems more fitting for a library called cthulhu.  With each version, I descend further down the path of madness...
 
 #### License
 The MIT License
