@@ -6,13 +6,17 @@
  *          whiteList (optional): array containing entities to leave behind.
  */
 
-import { createWordBoundaryList, ignoreInstancesOf } from './functions.js';
+import { createWordBoundaryList, ignoreInstancesOf, matchInstancesOf } from './functions.js';
 
-const stripEntities = (entities, whiteList) => {
+const stripEntities = (entities, list, isBlackList) => {
 
-    let regexTags   = createWordBoundaryList.apply(whiteList),
-        regexIgnore = ignoreInstancesOf.call(regexTags),
-        regexParser = new RegExp('&' + regexIgnore + '(.*?);', 'gi'),
+    let regexEntities = createWordBoundaryList.apply(list),
+        regexList     = isBlackList === true 
+            ? matchInstancesOf.call(regexEntities)
+            : ignoreInstancesOf.call(regexEntities)
+        ;
+
+    let regexParser = new RegExp('&' + regexList + '(.*?);', 'gi'),
         results     = entities.replace(regexParser, '');
 
     return results;

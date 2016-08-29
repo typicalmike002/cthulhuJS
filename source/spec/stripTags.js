@@ -36,12 +36,6 @@ describe('cthulhu.stripTags(): white list', function(){
             .toEqual('<i>This should not be bold!</i>');
     });
 
-    // Tests for passing a blank array:
-    it('Removes tags when passed an empty array.', function(){
-        expect(cthulhu.stripTags('<b><i><span>This should not be inside any tags!</span></i></b>', []))
-            .toEqual('This should not be inside any tags!')
-    });
-
     // Tests for leaving multible types of tags behind:
     it('Leave behind multible tags specified in the white list.', function(){
         expect(cthulhu.stripTags('<header class="title"><strong><i>This should not be italic!</i></strong></header>', ['header', 'strong']))
@@ -60,11 +54,5 @@ describe('cthulhu.stripTags(): black list', function(){
     it('Converts the white list array into a black list.  It should remove only tags specified in the black list.', function(){
         expect(cthulhu.stripTags('<b><i><span>This should only be italic.</span></i></b>', ['b', 'span'], true))
             .toEqual('<i>This should only be italic.</i>')
-    });
-
-    // Tests for passing a blank array:
-    it('Does nothing if array is empty.', function(){
-        expect(cthulhu.stripTags('<b><i><span>This should not remove anything.</span></i></b>', [], true))
-            .toEqual('<b><i><span>This should not remove anything.</span></i></b>')
     });
 });

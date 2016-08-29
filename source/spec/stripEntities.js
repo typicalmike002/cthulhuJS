@@ -34,12 +34,6 @@ describe('cthulhu.stripEntities(): white list', function(){
         expect(cthulhu.stripEntities('This&Dot; should&pound; only&curren; contain&amp; the&amp; apersand&yen; and&reg; non&sect; break&nbsp; space&lowbar; entities&verbar;.', ['amp', 'nbsp']))
             .toEqual('This should only contain&amp; the&amp; apersand and non break&nbsp; space entities.')
     });
-
-    // Test for passing a blank array:
-    it('Removes entities when passed an empty array.', function(){
-        expect(cthulhu.stripEntities('This&bsol; should&iexcl; not&amp; contain&dollar; any&quot; html&percnt; entities&Tab;.', []))
-            .toEqual('This should not contain any html entities.')
-    });
 });
 
 /**
@@ -52,11 +46,5 @@ describe('cthulhu.stripEntities(): black list', function(){
     it('Converts the white list array into a black list.  It should remove only entities specified in the black list.', function(){
         expect(cthulhu.stripEntities('This&cent; should&npt; remove&nbps; non&amp; break&iexcl; spaces&micro; and&para; ampersands&amp;.', ['amp', 'nbps'], true))
             .toEqual('This&cent; should&npt; remove non break&iexcl; spaces&micro; and&para; ampersands.')
-    });
-
-    // Test for passing a black array:
-    it('Will remove nothing when passed an empty array.', function(){
-        expect(cthulhu.stripEntities('This&rsqb; will&lowbar; remove&grave; nothing&verbar;.', [], true))
-            .toEqual('This&rsqb; will&lowbar; remove&grave; nothing&verbar;.')
     });
 });

@@ -10,10 +10,11 @@
 
 export function createWordBoundaryList() {
 
-    if (Array.isArray(this) && typeof this[0] === 'string') {
+    if (Array.isArray(this)) {
 
         let results = this.map((tag) => {
-                return new RegExp('\\b' + tag + '\\b').source;
+
+            return new RegExp('\\b' + tag + '\\b').source;
         });
 
         return results.join('|');
@@ -24,7 +25,7 @@ export function createWordBoundaryList() {
 
 
 /**
- * ignoreInstanceOf.call(/\\bh1\\b|\\bstrong\\b/);
+ * ignoreInstanceOf.call(\bh1\b|\bstrong\b);
  *
  * - Converts a regular expression string into a negative lookahead.
  *
@@ -35,10 +36,32 @@ export function ignoreInstancesOf() {
 
     if (this !== undefined) {
 
-        return new RegExp('(?!\/?(' + this + ')\/?)').source;
+        return new RegExp('(?!\/?(' + this + '))').source;
 
     } else {
         return '';
     }
 }
+
+
+
+
+/**
+ * matchInstanceOf.call(\bh1\b|\bstrong\b);
+ *
+ * - Converts a regular expression string into a group for finding matches.
+ *
+ * - Falls back to empty so it never returns undefined.
+ */
+
+ export function matchInstancesOf() {
+
+    if (this !== undefined) {
+
+        return new RegExp('\/?(' + this + ')').source;
+
+    } else {
+        return '';
+    }
+ }
 

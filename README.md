@@ -1,5 +1,5 @@
 # cthulhuJS
-###### -0.0.3
+###### -0.0.4
 Provides HTML parsing assistance from "Them and their blasphemous ways which doom us all to inhuman toil for the One whose Name cannot be expressed in the Basic Multilingual Plane".
 
 ## User's Guide
@@ -7,20 +7,24 @@ Add Cthulhu to your project:
 ```
 <script src="cthulhuJS/cthulhu.min.js"></script>
 ```
-### cthulhu.stripTags(html[, whiteList])
+### cthulhu.stripTags(html[, whiteList], isBlackList)
 #### Parameters
 **html:**
     string containing html tags.<br />
-**whiteList (optional):**
+**whiteList(Array) (optional):**
     array of tags to leave behind.  Do not wrap them in brackets.<br />
+**isBlackList(bool) (optional):**
+	Boolean value, passing true will convert the white list into a black list and the function will now only remove items specified inside this list.
 #### Description
 Strips a string of all html tags, excluding any tags declared in the white list.
-### cthulhu.stripEntities(entities[, whiteList])
+### cthulhu.stripEntities(entities[, whiteList], isBlackList)
 #### Parameters
 **entities:**
 	string containing html entities.<br />
-**whiteList (optional):**
+**whiteList(Array) (optional):**
 	array of entities to leave behind.  Leave out the appersand and semicolon.
+**isBlackList(bool) (optional):**
+	Boolean value, passing true will convert the white list into a black list and the function will now only remove items specified inside this list.
 #### Description
 Strips a string of all html entities, excluding any entities declared in the white list.
 ### Example
@@ -45,8 +49,8 @@ An example function that removes all html except the strong tag and nbsp entity:
 				// Removes all html tags except for <strong>
 				resultDiv.innerHTML = cthulhu.stripTags(exampleValue, ['strong']); 
 
-				// Removes all html entities except for &nbsp;
-				resultDiv.innerHTML = cthulhu.stripEntities(resultsDiv.innerHTML, ['nbsp']);
+				// Removes only the &nbsp; entity found inside exampleValue
+				resultDiv.innerHTML = cthulhu.stripEntities(resultsDiv.innerHTML, ['nbsp'], true);
 			}
 		</script>
 	</body>

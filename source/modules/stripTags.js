@@ -6,13 +6,17 @@
  *          whiteList (optional): array containing tags to leave behind.
  */
 
-import { createWordBoundaryList, ignoreInstancesOf } from './functions.js';
+import { createWordBoundaryList, ignoreInstancesOf, matchInstancesOf } from './functions.js';
 
-const stripTags = (html, whiteList) => {
+const stripTags = (html, list, isBlackList) => {
 
-    let regexTags   = createWordBoundaryList.apply(whiteList),
-        regexIgnore = ignoreInstancesOf.call(regexTags),
-        regexParser = new RegExp('<' + regexIgnore + '(.*?)>', 'gi'),
+    let regexTags   = createWordBoundaryList.apply(list),
+        regexList   = isBlackList === true 
+            ? matchInstancesOf.call(regexTags)
+            : ignoreInstancesOf.call(regexTags)
+        ;
+
+    let regexParser = new RegExp('<' + regexList + '(.*?)>', 'gi'),
         results     = html.replace(regexParser, '');
 
     return results;
