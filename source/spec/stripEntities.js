@@ -37,8 +37,8 @@ describe('cthulhu.stripEntities(): white list', function(){
 
     // Test for passing a blank array:
     it('Removes entities when passed an empty array.', function(){
-        expect(cthulhu.stripEntities('This$bsol; should&iexcl; not&amp; contain&dollar; any&quot; html&percnt; entities&Tab;', []))
-            .toEqual('This should not contain html any entities.')
+        expect(cthulhu.stripEntities('This&bsol; should&iexcl; not&amp; contain&dollar; any&quot; html&percnt; entities&Tab;.', []))
+            .toEqual('This should not contain any html entities.')
     });
 });
 

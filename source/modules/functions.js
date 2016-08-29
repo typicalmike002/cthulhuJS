@@ -10,7 +10,7 @@
 
 export function createWordBoundaryList() {
 
-    if (Array.isArray(this)) {
+    if (Array.isArray(this) && typeof this[0] === 'string') {
 
         let results = this.map((tag) => {
                 return new RegExp('\\b' + tag + '\\b').source;
